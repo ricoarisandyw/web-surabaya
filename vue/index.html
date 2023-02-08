@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .zoomMyChild {
+            position: relative;
+            height: 10px;
+            width: 100%;
+            background-color: yellow;
+            overflow: hidden;
+        }
+
+        .zoomMyChild:hover {
+            background: blue;
+        }
+
+        .zoomMyChild:hover .child {
+            transform: scale(1.5);
+            transition: all ease .3s;
+        }
+
+        .child {
+            transition: all ease .3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="zoomMyChild">
+            <div class="child" style="position: absolute;top: 0;background:tomato;width: 10px;height: 10px;"></div>
+        </div>
+        <div style="display: grid;grid-template-columns: 1fr 1fr 1fr 1fr;">
+            <div v-for="menu of listMenu" style="text-align: center;">
+                <img v-bind:src="menu.image" height="30" />
+                <div>{{menu.label}}</div>
+            </div>
+        </div>
+        <div>
+            <button @click="isShow= !isShow">
+                MUNCULKAN
+            </button>
+            <button @click="filter">
+                FILTER
+            </button>
+        </div>
+        <div v-if="isShow">
+            SHOW
+        </div>
+        <div v-else>
+            NOT SHOW
+        </div>
+    </div>
+    <div style="display:flex;gap:10px;">
+        <div style="flex:1;">
+            <div style="background:tomato;height:200px;width: 100%;"></div>
+            <div style="background:tomato;height:500px;width: 100%;margin-top: 10px;"></div>
+        </div>
+        <div style="flex:1;">
+            <div style="background:tomato;height:500px;width: 100%;"></div>
+            <div style="background:tomato;height:200px;width: 100%; margin-top: 10px;"></div>
+        </div>
+    </div>
+</body>
+
+<script src="./script.js"></script>
+<script src="./script2.js"></script>
+
+</html>
