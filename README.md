@@ -10,3 +10,5 @@
 ### dari Rico Wijaya
 
 ## edited at 20:54
+
+PUNYA BERSAMA
